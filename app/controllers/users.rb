@@ -25,8 +25,9 @@ get '/user/edit/:id' do
 end
 
 get '/user/:id' do
-  @user = User.find(session[:user_id])
+  @user = User.find(current_user.id)
   redirect to("/") if @user.id != params[:id].to_i
+  @albums = Album.where(user_id: current_user.id)
   erb :"user_views/show"
 end
 
@@ -34,7 +35,8 @@ post '/user/new' do
   user = User.new({
     email: params[:email],
     password: params[:password],
-    password_confirmation: params[:password_confirmation]
+    password_confirmation: params[:password_confirmation],
+    photo: params[:photo]
     })
   if user.save
     session[:user_id] = user.id
@@ -64,7 +66,8 @@ post '/user/edit' do
     @user.update({
       email: params[:email],
       password: params[:password],
-      password_confirmation: params[:password_confirmation]
+      password_confirmation: params[:password_confirmation],
+      photo: params[:photo]
       })
     if @user.save
       redirect to("/user/#{@user.id}")

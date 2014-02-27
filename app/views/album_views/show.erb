@@ -1,0 +1,11 @@
+<h1><%= @album.title %></h1>
+
+<a href="/photo/new/<%= @album.id %>" class="button">Add photo</a>
+
+<div class="row">
+	<% @photos.each do |photo| %>
+	  <div class="small-3 columns">
+	  	<img src="<%= photo.photo %>" alt="photo-id-<%= photo.id %>">
+	  </div>
+	<% end %>
+</div>

@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="large-6 large-offset-3 column">
+		<form class="form" enctype="multipart/form-data" action="/photo/new/<%= params[:album_id] %>" method="POST">
+			<label>Image<input type="file" accept="image/*" name="photo"></label>
+			<input type="submit" value="Add photo" class="button">
+		</form>
+	</div>
+</div>

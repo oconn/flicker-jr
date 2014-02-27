@@ -1,2 +1,18 @@
 <h1>User homepage</h1>
-<p>Find in: views/user_views/show.erb</p>
+
+<div class="row">
+	<div class="small-4 offset-8 columns">
+		<img class="profile-pic" src="<%= @user.photo %>">
+	</div>
+</div>
+
+<a href="/album/new" class="button">Add Album</a>
+<h2>Albums</h2>
+
+<div class="row">
+	<% @albums.each do |album| %>
+	  <div class="small-3 columns">
+		  <a href="/album/<%= album.id %>"><img class="album-cover" src="<%= album.photo %>" alt="<%= album.title %>-gallery"></a>
+		</div>
+	<% end %>
+</div>

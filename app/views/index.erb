@@ -3,3 +3,11 @@
 <% if !current_user? %>
   <a href="/user/signup" class="button">Sign Up!</a>
 <% end %>
+
+<div class="row">
+	<% Album.all.each do |album| %>
+	  <div class="small-3 columns">
+		  <a href="/album/<%= album.id %>"><img src="<%= album.photo %>" alt="<%= album.title %>"></a>
+		</div>
+	<% end %>
+</div>

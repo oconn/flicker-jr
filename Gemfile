@@ -7,6 +7,8 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 
+gem 'carrierwave'
+
 # Use Thin for our web server
 gem 'thin'
 
